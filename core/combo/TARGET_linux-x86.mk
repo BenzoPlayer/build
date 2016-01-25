@@ -42,6 +42,7 @@ endif
 
 include $(TARGET_ARCH_SPECIFIC_MAKEFILE)
 include $(BUILD_SYSTEM)/combo/fdo.mk
+include $(BUILD_SYSTEM)/benzo_opts.mk
 
 # You can set TARGET_TOOLS_PREFIX to get gcc from somewhere else
 ifeq ($(strip $($(combo_2nd_arch_prefix)TARGET_TOOLS_PREFIX)),)
