@@ -15,8 +15,6 @@
 # limitations under the License.
 #
 NOOP_BLUETOOTH := \
-	libbluetooth_jni_32 \
-	bluetooth.default_32 \
 	libbluetooth_jni \
 	bluetooth.mapsapi \
 	bluetooth.default \
@@ -43,29 +41,19 @@ NOOP_BLUETOOTH := \
 	net_test_btcore \
 	net_bdtool \
 	net_hci \
-	bdAddrLoader \
-	camera.msm8084 \
-	gps.msm8084 \
-	gralloc.msm8084 \
-	keystore.msm8084 \
-	memtrack.msm8084 \
-	hwcomposer.msm8084 \
-	audio.primary.msm8084
+	bdAddrLoader
 
 NO_OPTIMIZATIONS += \
 	pppd \
 	libmcldScript \
 	libmcldMC \
 	libmedia_jni \
-	libmedia_jni_32 \
-	libnfc-nci_32 \
 	fsck.f2fs \
 	racoon \
 	dex2oatd \
 	libc_tzcode \
 	libbinder \
 	libbypass \
-	libandroid_runtime_32 \
 	libperfprofdcore \
 	libwebrtc_spl \
 	libFraunhoferAAC \
@@ -85,11 +73,8 @@ NO_OPTIMIZATIONS += \
 	libRSDriver \
 	libmm-qcamera \
 	libmmcamera_interface \
-	libmmjpeg_interface_32 \
-	libmmcamera_interface_32 \
 	libmmjpeg_interface \
 	mm-qcamera-app \
-	mm-qcamera-app_32 \
 	mm-jpeg-interface-test \
 	mm-qcamera-app \
 	libqomx_core \
@@ -122,10 +107,6 @@ NO_OPTIMIZATIONS += \
 	libRSCpuRef \
 	libmedia_jni \
 	libcrypto \
-	libcrypto-host_32 \
-	libsqlite_jni_32 \
-	libharfbuzz_ng_32 \
-	libpdfiumcore_32 \
 	libfdlibm \
 	libnfc-nci \
 	libssh \
@@ -134,6 +115,10 @@ NO_OPTIMIZATIONS += \
 	libnfc-nci \
 	libnfc_nci_jni \
 	libvpx_internal \
+	2ndbootloader \
+	mkbootimg \
+	bootstub \
+	bootstub_ramdump \
 	$(NOOP_BLUETOOTH)
 
 
@@ -177,7 +162,6 @@ ifeq ($(GRAPHITE_OPTS),true)
 	bluetooth.mapsapi \
 	bluetooth.default \
 	bluetooth.mapsapi \
-	libbluetooth_jni_32 \
 	libbt-brcm_stack \
 	audio.a2dp.default \
 	libbt-brcm_gki \
@@ -201,19 +185,7 @@ ifeq ($(GRAPHITE_OPTS),true)
 	net_bdtool \
 	net_hci \
 	bdAddrLoader \
-	camera.msm8084 \
-	gps.msm8084 \
-	gralloc.msm8084 \
-	keystore.msm8084 \
-	memtrack.msm8084 \
-	hwcomposer.msm8084 \
-	audio.primary.msm8084 \
-	libmmcamera_interface_32 \
-	libmmjpeg_interface_32 \
-	libmmjpeg_interface \
-	mm-qcamera-app \
-	mm-qcamera-app_32 \
-	libmmcamera_interface_32 \
+	libjavacore-benchmarks \
 	$(NO_OPTIMIZATIONS)
 
    ifeq ($(filter $(LOCAL_DISABLE_GRAPHITE), $(LOCAL_MODULE)),)
@@ -296,14 +268,7 @@ LOCAL_DISABLE_IPA := \
 	net_test_btcore \
 	net_bdtool \
 	net_hci \
-	bdAddrLoader \
-	camera.msm8084 \
-	gps.msm8084 \
-	gralloc.msm8084 \
-	keystore.msm8084 \
-	memtrack.msm8084 \
-	hwcomposer.msm8084 \
-	audio.primary.msm8084
+	bdAddrLoader
 
  ifeq (,$(filter true,$(LOCAL_CLANG)))
    ifneq (1,$(words $(filter $(LOCAL_DISABLE_IPA),$(LOCAL_MODULE))))
@@ -378,12 +343,8 @@ LOCAL_DISABLE_PTHREAD := \
 	libc_netbsd \
 	libc_tzcode \
 	dex2oatd \
-	libbluetooth_jni_32 \
-	libmmcamera_interface_32 \
-	libmmjpeg_interface_32 \
 	libmmjpeg_interface \
 	mm-qcamera-app \
-	mm-qcamera-app_32 \
 	$(NOOP_BLUETOOTH) \
 	$(NO_OPTIMIZATIONS)
 
@@ -408,12 +369,8 @@ ifeq ($(ENABLE_GOMP),true)
 LOCAL_DISABLE_GOMP := \
 	dex2oatd \
 	libc_tzcode \
-	libbluetooth_jni_32 \
-	libmmcamera_interface_32 \
-	libmmjpeg_interface_32 \
 	libmmjpeg_interface \
 	mm-qcamera-app \
-	mm-qcamera-app_32 \
 	$(NOOP_BLUETOOTH) \
 	$(NO_OPTIMIZATIONS)
 
@@ -444,12 +401,8 @@ ifeq ($(ENABLE_EXTRAGCC),true)
 LOCAL_DISABLE_EXTRAGCC := \
 	dex2oatd \
 	libc_tzcode \
-	libbluetooth_jni_32 \
-	libmmcamera_interface_32 \
-	libmmjpeg_interface_32 \
 	libmmjpeg_interface \
 	mm-qcamera-app \
-	mm-qcamera-app_32 \
 	libbinder \
 	$(NOOP_BLUETOOTH) \
 	$(NO_OPTIMIZATIONS)
