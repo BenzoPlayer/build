@@ -33,7 +33,9 @@ ifeq ($(LLVM_PREBUILTS_VERSION),3.8)
 endif
 
 # Disable modules that don't work with DragonTC.
-DISABLE_DTC_x86 :=
+DISABLE_DTC_x86 := \
+  libm \
+  libmcldScript
 
 # Set DISABLE_DTC based on arch
 DISABLE_DTC := \
@@ -52,8 +54,34 @@ ENABLE_DTC := \
 DISABLE_POLLY_x86 :=
 
 DISABLE_POLLY_x86 := \
+  bcc_strip_attr \
   libpng \
   libfuse \
+  libLLVMAnalysis \
+  libLLVMARMCodeGen \
+  libLLVMAsmParser \
+  libLLVMBitReader \
+  libLLVMCodeGen \
+  libLLVMInstCombine \
+  libLLVMMCParser \
+  libLLVMSupport \
+  libLLVMSelectionDAG \
+  libLLVMTransformUtils \
+  libLLVMScalarOpts \
+  libLLVMCore \
+  libLLVMInstrumentation \
+  libLLVMipo \
+  libLLVMMC \
+  libLLVMSupport \
+  libLLVMTransformObjCARC \
+  libLLVMVectorize \
+  libF77blas \
+  libmcldScript \
+  libbccSupport \
+  libblas \
+  libRS \
+  libstagefright_mpeg2ts \
+  libgui \
   libvixl
 
 # Set DISABLE_POLLY based on arch
