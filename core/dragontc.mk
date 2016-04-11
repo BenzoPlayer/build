@@ -28,14 +28,20 @@ ifeq ($(LLVM_PREBUILTS_VERSION),3.7)
   POLLY += -mllvm -polly-no-early-exit
 endif
 
-ifeq ($(LLVM_PREBUILTS_VERSION),3.8)
+ifeq ($(LLVM_PREBUILTS_VERSION),3.8 3.9)
   POLLY += -mllvm -polly-position=after-loopopt
 endif
 
 # Disable modules that don't work with DragonTC.
 DISABLE_DTC_x86 := \
-  libm \
-  libmcldScript
+ libblasV8 \
+ libjavacrypto \
+ libm \
+ libmcldScript \
+ libperfprofdcore \
+ libperfprofdutils \
+ libscrypt_static \
+ perfprofd
 
 # Set DISABLE_DTC based on arch
 DISABLE_DTC := \
@@ -55,33 +61,32 @@ DISABLE_POLLY_x86 :=
 
 DISABLE_POLLY_x86 := \
   bcc_strip_attr \
-  libpng \
+  libbccSupport \
+  libblas \
   libfuse \
-  libLLVMAnalysis \
+  libfuse_static \
+  libgui \
+  libF77blas \
   libLLVMARMCodeGen \
+  libLLVMAnalysis \
   libLLVMAsmParser \
   libLLVMBitReader \
   libLLVMCodeGen \
-  libLLVMInstCombine \
-  libLLVMMCParser \
-  libLLVMSupport \
-  libLLVMSelectionDAG \
-  libLLVMTransformUtils \
-  libLLVMScalarOpts \
   libLLVMCore \
-  libLLVMInstrumentation \
   libLLVMipo \
+  libLLVMInstCombine \
+  libLLVMInstrumentation \
   libLLVMMC \
+  libLLVMMCParser \
+  libLLVMScalarOpts \
+  libLLVMSelectionDAG \
   libLLVMSupport \
   libLLVMTransformObjCARC \
+  libLLVMTransformUtils \
   libLLVMVectorize \
-  libF77blas \
-  libmcldScript \
-  libbccSupport \
-  libblas \
+  libpng \
   libRS \
   libstagefright_mpeg2ts \
-  libgui \
   libvixl
 
 # Set DISABLE_POLLY based on arch
